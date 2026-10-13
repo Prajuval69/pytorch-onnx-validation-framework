@@ -1,0 +1,1 @@
+Read MASTER_CODEX_PROMPT.md and AGENTS.md, then implement the entire project from spec/ autonomously. Do not stop after planning. Build working CPU-first code, run tests and the demo, fix errors, and summarize only tests/results that actually ran. No Docker, API keys or GPU required.

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AMLV RunManifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "run_id",
+    "started_at_utc",
+    "finished_at_utc",
+    "synthetic_data",
+    "environment",
+    "summary",
+    "cases_file",
+    "html_report",
+    "csv_report"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "started_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finished_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "synthetic_data": {
+      "const": true
+    },
+    "environment": {
+      "type": "object",
+      "required": [
+        "python",
+        "pytorch",
+        "onnx",
+        "onnxruntime",
+        "platform",
+        "providers"
+      ],
+      "properties": {
+        "python": {
+          "type": "string"
+        },
+        "pytorch": {
+          "type": "string"
+        },
+        "onnx": {
+          "type": "string"
+        },
+        "onnxruntime": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "providers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "total",
+        "pass",
+        "fail",
+        "error",
+        "skip"
+      ],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pass": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fail": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "error": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "skip": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "cases_file": {
+      "type": "string"
+    },
+    "html_report": {
+      "type": "string"
+    },
+    "csv_report": {
+      "type": "string"
+    },
+    "fault_injection": {
+      "type": "boolean"
+    }
+  }
+}

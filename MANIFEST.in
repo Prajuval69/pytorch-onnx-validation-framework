@@ -1,0 +1,7 @@
+include LICENSE README.md AGENTS.md MASTER_CODEX_PROMPT.md SPEC_INDEX.md
+recursive-include config *.yaml *.txt
+recursive-include spec *.md *.json
+recursive-include docs *.md
+recursive-include scripts *.py
+recursive-include tests *.py
+include .github/workflows/ci.yml

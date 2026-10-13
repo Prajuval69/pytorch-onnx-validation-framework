@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AMLV CaseRecord",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "case_id",
+    "model_id",
+    "seed",
+    "distribution",
+    "input_shapes",
+    "input_sha256",
+    "onnx_sha256",
+    "status",
+    "inputs_path",
+    "metrics"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "model_id": {
+      "enum": [
+        "mlp",
+        "cnn",
+        "attention"
+      ]
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "distribution": {
+      "type": "string"
+    },
+    "input_shapes": {
+      "type": "object"
+    },
+    "input_sha256": {
+      "type": "string"
+    },
+    "onnx_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "ERROR",
+        "SKIP"
+      ]
+    },
+    "inputs_path": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "intentional_fault_injection": {
+      "type": "boolean"
+    }
+  }
+}

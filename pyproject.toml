@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytorch-onnx-validation-framework"
+version = "0.1.0"
+description = "Deterministic CPU cross-runtime conformance for synthetic PyTorch and ONNX models"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+  "numpy>=1.26,<3", "torch>=2.6,<3", "onnx>=1.17,<2",
+  "onnxruntime>=1.20,<2", "onnxscript>=0.3,<1", "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "jsonschema>=4.23,<5", "build>=1,<2"]
+
+[project.scripts]
+amlv = "amlv.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: real CPU PyTorch / ONNX inference", "cli: command-line end-to-end"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["build", "dist", "artifacts", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

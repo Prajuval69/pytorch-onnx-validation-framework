@@ -1,0 +1,22 @@
+schema_version: 1
+seed: 2026
+models: [mlp, cnn, attention]
+providers: [CPUExecutionProvider]
+export:
+  dynamo: true
+  dynamic_batch: true
+  opset_version: null  # choose supported installed default; record actual
+cases:
+  batch_sizes: [1, 2, 4]
+  distributions: [normal, uniform, zeros, ones, near_zero, large_bounded]
+  dtype: float32
+  include_invalid_input_tests: true
+  max_input_megabytes: 128
+compare:
+  atol: 0.00001
+  rtol: 0.0001
+  nan_policy: fail
+report:
+  html: true
+  csv: true
+  json: true
