@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "case_id": "aa84c46ca752b9b2ad77e307",
+  "model_id": "mlp",
+  "model_spec": {
+    "model_id": "mlp",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 3072978306,
+  "distribution": "normal",
+  "input_shapes": {
+    "input": [
+      1,
+      32
+    ]
+  },
+  "input_dtypes": {
+    "input": "float32"
+  },
+  "input_sha256": "b71a159166f0ed602b39bc913e3419cdc79e0f118d5b944a28dec57a08ed6ec8",
+  "input_fingerprint": "72e45fa965605002c63d2e7b91be4da0acf2936b7fc99be4fd24684c39218c97",
+  "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+  "inputs_path": "inputs/aa84c46ca752b9b2ad77e307.npz",
+  "case_path": "cases/aa84c46ca752b9b2ad77e307.json",
+  "test_kind": "parity",
+  "negative_reason": null,
+  "expected_exception": null,
+  "tags": [
+    "synthetic",
+    "parity",
+    "injected_fault"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": true,
+  "synthetic_fault_injection": true,
+  "fault_replay_requested": true,
+  "fault": {
+    "type": "add",
+    "output": "output",
+    "index": [
+      0,
+      0
+    ],
+    "amplitude": 1.0,
+    "seed": 2026
+  },
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "mlp",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "abb309b01af3f557dcd343870a2f24e7cf842f0a757f779f7f4bc3598ca919b3",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "56d4e4e1a0cf27a2051ed864ab5f25c0f6fd34f1a792e41135bec45b633303c8",
+    "cache_hit": false,
+    "onnx_path": "models/mlp-56d4e4e1a0cf27a2.onnx",
+    "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+    "weights_path": "models/mlp-56d4e4e1a0cf27a2-weights.npz",
+    "weights_file_sha256": "faf52c58088c450c4c8a45c21179df7ed05d561b117afd57a3665a05aafb7982",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 3,
+    "operators": {
+      "Gemm": 2,
+      "Relu": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/mlp-56d4e4e1a0cf27a2-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "FAIL",
+  "metrics": {
+    "output": {
+      "max_abs": 0.9999999403953552,
+      "max_rel": 2.0662653406874045,
+      "mean_abs": 0.12500002142041922,
+      "rmse": 0.3535533695198529,
+      "cosine_similarity": 0.39473526982350077,
+      "total_elements": 8,
+      "mismatched_elements": 1,
+      "nonfinite_elements": 0,
+      "worst": {
+        "index": [
+          0,
+          0
+        ],
+        "reference": -0.4839649200439453,
+        "candidate": 0.5160350203514099,
+        "threshold": 5.839649200439453e-05,
+        "abs_error": 0.9999999403953552
+      }
+    }
+  },
+  "reason": "output: 1 elements exceed tolerance/nonfinite policy",
+  "error": {
+    "category": "NumericalMismatch",
+    "message": "output: 1 elements exceed tolerance/nonfinite policy"
+  }
+}

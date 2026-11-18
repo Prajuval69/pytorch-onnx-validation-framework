@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "case_id": "869bbf915ce37f3f0f62d829",
+  "model_id": "attention",
+  "model_spec": {
+    "model_id": "attention",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 1483894829,
+  "distribution": "near_zero",
+  "input_shapes": {
+    "input": [
+      1,
+      4,
+      16
+    ]
+  },
+  "input_dtypes": {
+    "input": "float32"
+  },
+  "input_sha256": "0fbf581546eb50a9db2ba3fbbf9666dcc6539058344a3d8dc90d6c79d743bff1",
+  "input_fingerprint": "912cf65303c4257b23c042b35f8cbed9ee9c5c937d84e892ff4ca17ec47e6df9",
+  "onnx_sha256": "e0c93970044627596da9e2b4ffdcc472fb256d7c06ce0f7043c09c34f01b5cb7",
+  "inputs_path": "inputs/869bbf915ce37f3f0f62d829.npz",
+  "case_path": "cases/869bbf915ce37f3f0f62d829.json",
+  "test_kind": "parity",
+  "negative_reason": null,
+  "expected_exception": null,
+  "tags": [
+    "synthetic",
+    "parity"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": false,
+  "synthetic_fault_injection": false,
+  "fault_replay_requested": false,
+  "fault": null,
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "attention",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "43b2df73d087a637fc8c76b03f88cc430ace2e537eaa85d263cd1e24b7884ada",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "76220bed37c7e540deaafd145e2d7844301c7f9a3a6a0130fcc369ac8ec45505",
+    "cache_hit": false,
+    "onnx_path": "models/attention-76220bed37c7e540.onnx",
+    "onnx_sha256": "e0c93970044627596da9e2b4ffdcc472fb256d7c06ce0f7043c09c34f01b5cb7",
+    "weights_path": "models/attention-76220bed37c7e540-weights.npz",
+    "weights_file_sha256": "255ee53edbadb9270a550ee72a7fca97b94045c934c08547a32a970e867a729f",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 13,
+    "operators": {
+      "MatMul": 6,
+      "Add": 4,
+      "Transpose": 1,
+      "Div": 1,
+      "Softmax": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/attention-76220bed37c7e540-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "PASS",
+  "metrics": {
+    "output": {
+      "max_abs": 7.450580596923828e-09,
+      "max_rel": 1.4883277893123181e-06,
+      "mean_abs": 1.3969838619232178e-09,
+      "rmse": 2.9451005721170265e-09,
+      "cosine_similarity": 0.9999999999999998,
+      "total_elements": 64,
+      "mismatched_elements": 0,
+      "nonfinite_elements": 0,
+      "worst": null
+    }
+  },
+  "reason": null,
+  "error": null
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "case_id": "bf13738fe4a2bfa14b6c505a",
+  "model_id": "mlp",
+  "model_spec": {
+    "model_id": "mlp",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 2026,
+  "distribution": "uniform",
+  "input_shapes": {},
+  "input_dtypes": {},
+  "input_sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+  "input_fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+  "inputs_path": "inputs/bf13738fe4a2bfa14b6c505a.npz",
+  "case_path": "cases/bf13738fe4a2bfa14b6c505a.json",
+  "test_kind": "negative_input",
+  "negative_reason": "missing",
+  "expected_exception": {
+    "category": "InvalidInput",
+    "reason": "missing"
+  },
+  "tags": [
+    "synthetic",
+    "negative_input"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": false,
+  "synthetic_fault_injection": false,
+  "fault_replay_requested": false,
+  "fault": null,
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "mlp",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "abb309b01af3f557dcd343870a2f24e7cf842f0a757f779f7f4bc3598ca919b3",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "56d4e4e1a0cf27a2051ed864ab5f25c0f6fd34f1a792e41135bec45b633303c8",
+    "cache_hit": false,
+    "onnx_path": "models/mlp-56d4e4e1a0cf27a2.onnx",
+    "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+    "weights_path": "models/mlp-56d4e4e1a0cf27a2-weights.npz",
+    "weights_file_sha256": "faf52c58088c450c4c8a45c21179df7ed05d561b117afd57a3665a05aafb7982",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 3,
+    "operators": {
+      "Gemm": 2,
+      "Relu": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/mlp-56d4e4e1a0cf27a2-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "PASS",
+  "metrics": {},
+  "backend_outcomes": {
+    "reference": {
+      "status": "PASS",
+      "category": "InvalidInput",
+      "message": "Missing or unexpected named input",
+      "reason": "missing"
+    },
+    "onnx": {
+      "status": "PASS",
+      "category": "InvalidInput",
+      "message": "Required inputs (['input']) are missing from input feed ([]).",
+      "reason": "missing"
+    }
+  },
+  "reason": "Expected rejection in both backends",
+  "error": null
+}

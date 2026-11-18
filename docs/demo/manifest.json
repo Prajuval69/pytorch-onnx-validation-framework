@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "run_id": "2026-10-13T060334-5b738dcb",
+  "started_at_utc": "2026-10-13T06:03:34.156901+00:00",
+  "finished_at_utc": "2026-10-13T06:03:37.004371+00:00",
+  "duration_seconds": 2.844000000040978,
+  "synthetic_data": true,
+  "synthetic_fault_injection": false,
+  "fault_injection": false,
+  "environment": {
+    "python": "3.12.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "architecture": "AMD64",
+    "amlv": "0.1.0",
+    "providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ],
+    "dependency_errors": {},
+    "pytorch": "2.14.1+cpu",
+    "torch_num_threads": 1,
+    "torch_deterministic_algorithms": true,
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.0",
+    "numpy": "2.5.4",
+    "onnxscript": "0.7.2"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "summary": {
+    "total": 30,
+    "pass": 30,
+    "fail": 0,
+    "error": 0,
+    "skip": 0
+  },
+  "models": {
+    "mlp": {
+      "status": "PASS",
+      "export_contract_version": 2,
+      "model_spec": {
+        "model_id": "mlp",
+        "seed": 2026,
+        "input_names": [
+          "input"
+        ],
+        "output_names": [
+          "output"
+        ],
+        "architecture_version": 1
+      },
+      "weights_sha256": "abb309b01af3f557dcd343870a2f24e7cf842f0a757f779f7f4bc3598ca919b3",
+      "export_options": {
+        "dynamo": true,
+        "dynamic_batch": true,
+        "opset_version": null
+      },
+      "static_batch": 1,
+      "torch": "2.14.1+cpu",
+      "onnx": "1.23.2",
+      "cache_key": "56d4e4e1a0cf27a2051ed864ab5f25c0f6fd34f1a792e41135bec45b633303c8",
+      "cache_hit": false,
+      "onnx_path": "models/mlp-56d4e4e1a0cf27a2.onnx",
+      "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+      "weights_path": "models/mlp-56d4e4e1a0cf27a2-weights.npz",
+      "weights_file_sha256": "faf52c58088c450c4c8a45c21179df7ed05d561b117afd57a3665a05aafb7982",
+      "exporter_mode": "dynamo",
+      "exporter_flags": {
+        "dynamo": true,
+        "external_data": false,
+        "dynamic_batch": true,
+        "fallback_argument_supported": false
+      },
+      "fallback_reason": null,
+      "opset_version": 18,
+      "graph_check": "PASS",
+      "dynamic_batch": true,
+      "node_count": 3,
+      "operators": {
+        "Gemm": 2,
+        "Relu": 1
+      },
+      "warnings": [],
+      "diagnostics_path": "models/mlp-56d4e4e1a0cf27a2-export.log",
+      "selected_providers": [
+        "CPUExecutionProvider"
+      ]
+    },
+    "cnn": {
+      "status": "PASS",
+      "export_contract_version": 2,
+      "model_spec": {
+        "model_id": "cnn",
+        "seed": 2026,
+        "input_names": [
+          "input"
+        ],
+        "output_names": [
+          "output"
+        ],
+        "architecture_version": 1
+      },
+      "weights_sha256": "3e313a7232cd3e2982aa01e0df65813a7d2eb3a52b845a250c9e302048addb45",
+      "export_options": {
+        "dynamo": true,
+        "dynamic_batch": true,
+        "opset_version": null
+      },
+      "static_batch": 1,
+      "torch": "2.14.1+cpu",
+      "onnx": "1.23.2",
+      "cache_key": "d6a8f048fb67f5667fa7fd50e77625859d89e4853d05fcb988331216ef8ec314",
+      "cache_hit": false,
+      "onnx_path": "models/cnn-d6a8f048fb67f566.onnx",
+      "onnx_sha256": "2d94c846363a1513446b03b08b8089bdf65f8ee58d050f0ea39ebd47c6c158da",
+      "weights_path": "models/cnn-d6a8f048fb67f566-weights.npz",
+      "weights_file_sha256": "b65fef32a36709c105dcfa7f0a9a500cedcd3918d87998a7613b4d7a9f30a632",
+      "exporter_mode": "dynamo",
+      "exporter_flags": {
+        "dynamo": true,
+        "external_data": false,
+        "dynamic_batch": true,
+        "fallback_argument_supported": false
+      },
+      "fallback_reason": null,
+      "opset_version": 18,
+      "graph_check": "PASS",
+      "dynamic_batch": true,
+      "node_count": 4,
+      "operators": {
+        "Conv": 1,
+        "Relu": 1,
+        "ReduceMean": 1,
+        "Gemm": 1
+      },
+      "warnings": [],
+      "diagnostics_path": "models/cnn-d6a8f048fb67f566-export.log",
+      "selected_providers": [
+        "CPUExecutionProvider"
+      ]
+    },
+    "attention": {
+      "status": "PASS",
+      "export_contract_version": 2,
+      "model_spec": {
+        "model_id": "attention",
+        "seed": 2026,
+        "input_names": [
+          "input"
+        ],
+        "output_names": [
+          "output"
+        ],
+        "architecture_version": 1
+      },
+      "weights_sha256": "43b2df73d087a637fc8c76b03f88cc430ace2e537eaa85d263cd1e24b7884ada",
+      "export_options": {
+        "dynamo": true,
+        "dynamic_batch": true,
+        "opset_version": null
+      },
+      "static_batch": 1,
+      "torch": "2.14.1+cpu",
+      "onnx": "1.23.2",
+      "cache_key": "76220bed37c7e540deaafd145e2d7844301c7f9a3a6a0130fcc369ac8ec45505",
+      "cache_hit": false,
+      "onnx_path": "models/attention-76220bed37c7e540.onnx",
+      "onnx_sha256": "e0c93970044627596da9e2b4ffdcc472fb256d7c06ce0f7043c09c34f01b5cb7",
+      "weights_path": "models/attention-76220bed37c7e540-weights.npz",
+      "weights_file_sha256": "255ee53edbadb9270a550ee72a7fca97b94045c934c08547a32a970e867a729f",
+      "exporter_mode": "dynamo",
+      "exporter_flags": {
+        "dynamo": true,
+        "external_data": false,
+        "dynamic_batch": true,
+        "fallback_argument_supported": false
+      },
+      "fallback_reason": null,
+      "opset_version": 18,
+      "graph_check": "PASS",
+      "dynamic_batch": true,
+      "node_count": 13,
+      "operators": {
+        "MatMul": 6,
+        "Add": 4,
+        "Transpose": 1,
+        "Div": 1,
+        "Softmax": 1
+      },
+      "warnings": [],
+      "diagnostics_path": "models/attention-76220bed37c7e540-export.log",
+      "selected_providers": [
+        "CPUExecutionProvider"
+      ]
+    }
+  },
+  "cases_file": "cases.jsonl",
+  "cases_file_sha256": "cc733aec4e75ec008126f528d67891798372c16e8850debd39db0c7f3084c0d5",
+  "case_json_sha256": {
+    "aa84c46ca752b9b2ad77e307": "b87b2d6e9d991312dd4509620c8bff53d7e5b72b99dafcee7d4fb111c1c02ec4",
+    "c4d1662ab476b2d827e1c822": "2ba2939f2186c6b40561bdf37a687dbca66b7b66284c0768dd883e1e28ed8382",
+    "7410ff3602913f9cb32d3294": "6f92e36a28b6c59ae25258fad7622f1a5c827a55af688164397435704d87a730",
+    "34ab64acadf9ac141bbc4740": "c8fec13c2662e620dfb179337a6b342c28dd3f3f7d31f223b75e5ef59095e06f",
+    "e48ede3ed44f7cb3b6503200": "78499a161eeb7c7f0beac129e9c2bf9abc10a0a452608ba2162bb588ee871f7a",
+    "764ef0fa9a77f45ad7c67c1e": "bc024a26053ea6dac5451d0a769d897739ab7e0d3cd8d7a59b5b0a2c74cba325",
+    "7f4108eb5e0f302e212b7ebb": "64447444be63410847976b2069667459a9b7a85f0b10a8dac2fafb4f7bfff45e",
+    "dd03bbf5c947680f5f8e1e92": "fd1fde48a4bd8bd016df5ae4f0bfd09daaf93b652a98af83483043b3d6991a58",
+    "d6944d355aea26504c34b5e6": "dd5c680ba273f22925e7d867bd1873515a4656cf521d86db64b17d9a4b2a119a",
+    "bf13738fe4a2bfa14b6c505a": "233758024f80b2ba02c147689fbe296d14b26f73cbdf6310b6313edd740779e4",
+    "193638471f840eef13473b06": "eac397c7429443003bdfbde2897142eaf7771dc6145577dafa420924f869c6ec",
+    "53c1a70d7f09a5fe52fc85d8": "0a2561c5745a3b8b9cb0a2875980eefecd622958e751bb49aba778ab28161e79",
+    "ab0741f11a5d2bc9f8bd12b4": "0db760e6753656f1b3967c49d2fc23353f932fb8ef29d0c5c59890f911384ad0",
+    "dfc23c618596ffa6885513ee": "183813658f2faa1bff4b1bc9d0997089a63fe7f0e766fc97e060cc323c05b02d",
+    "a6e02eab2e1e2e5c84300117": "593324cc94bdb144e36a17fb9d3984aa3214f12dfa97992554ec2199ea6fc85c",
+    "4e3108d15e5ba373950491cf": "764e96df0558905884c7938a217192b02b9a5a6b0ca7ab6ae3ed9f9febc3d1e1",
+    "116f86007776b5a097ce46a8": "a5c17d9fa84338e4d327263be3863fb29d92b983786bd840ddb8ffa568ead3b2",
+    "5ba735e0b6affe03f3b3edf7": "cc0b89ab47b9558a2bbc54cdeb7b1bee349f83b95b8c9759c874dc91db0914b9",
+    "99107b6ea5ca6ab01b134b9e": "4dd581c7740918668d787fc0249357e17413721ca46cc317c8d3ca6e3e87f136",
+    "ef87586837e8b0c33abc2497": "1dd5612ab0667f0e4f66427662401b1c11b3652f5fe37f4aa828b9a2aaa84dd7",
+    "b8a34fccd4bcb6afc65c85d2": "8e76861a8f959d8ac3ca71e9bc304113410e463b0406743893443b258bd90e46",
+    "a83a06a91962de621b99097a": "8144f95f53f2340ae3a8a5d045cdcc0b847758872acade7e03f3877e64605ba4",
+    "869bbf915ce37f3f0f62d829": "629d5f3003a9e183ae3c9e52ad71b57967d0a40ed87db308544496af834b3832",
+    "2c7d93e54aaadd3972c5e0f6": "a1ab819cfe9e2fbe4f3bd673b030762ce12bbdcb9ebaef5382ac1382adb3c3d5",
+    "204247c59c464c2f76003c00": "bab304b202bcbaa5ccf47b41b2e84933c4a237391ebe80aeae32dbb42e1b5652",
+    "64286bc4c183374f733b8ba5": "05aba713d3eefb8100bb162252bc854cd37c4dc01ec9da05f9f0f38aaf483a2c",
+    "22191308ad62c4cb92988399": "ef0ba2146da6ef70ae48904f0835d601b945cc4c2c1f92a1b08e5fc91961f769",
+    "4dd08fc913decd3301f36d66": "7edb48ea66653a531b715da8597e1ea3050af7545fa6e114ba269c4cc9a5b49f",
+    "666cbe8a9cb9b94261424a67": "c1bd376b5ec2680000b6eb76e2e5e70b74db50612deb3f0d667fc821bcb002d7",
+    "7040aff1bab30455f1a0818b": "8e40efd0099e3ea7a3605e79afedfc0778f312723ed58b6f000641639a3034ef"
+  },
+  "html_report": "report.html",
+  "csv_report": "metrics.csv",
+  "source": null,
+  "exit_code": 0,
+  "methodology": "abs(reference-candidate) <= atol + rtol*abs(reference); synthetic numerical equivalence, no predictive accuracy or board testing"
+}

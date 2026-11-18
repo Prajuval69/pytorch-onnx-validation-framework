@@ -1,0 +1,49 @@
+{
+  "export_contract_version": 2,
+  "model_spec": {
+    "model_id": "cnn",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "weights_sha256": "3e313a7232cd3e2982aa01e0df65813a7d2eb3a52b845a250c9e302048addb45",
+  "export_options": {
+    "dynamo": true,
+    "dynamic_batch": true,
+    "opset_version": null
+  },
+  "static_batch": 1,
+  "torch": "2.14.1+cpu",
+  "onnx": "1.23.2",
+  "cache_key": "d6a8f048fb67f5667fa7fd50e77625859d89e4853d05fcb988331216ef8ec314",
+  "cache_hit": false,
+  "onnx_path": "models/cnn-d6a8f048fb67f566.onnx",
+  "onnx_sha256": "2d94c846363a1513446b03b08b8089bdf65f8ee58d050f0ea39ebd47c6c158da",
+  "weights_path": "models/cnn-d6a8f048fb67f566-weights.npz",
+  "weights_file_sha256": "b65fef32a36709c105dcfa7f0a9a500cedcd3918d87998a7613b4d7a9f30a632",
+  "exporter_mode": "dynamo",
+  "exporter_flags": {
+    "dynamo": true,
+    "external_data": false,
+    "dynamic_batch": true,
+    "fallback_argument_supported": false
+  },
+  "fallback_reason": null,
+  "opset_version": 18,
+  "graph_check": "PASS",
+  "dynamic_batch": true,
+  "node_count": 4,
+  "operators": {
+    "Conv": 1,
+    "Relu": 1,
+    "ReduceMean": 1,
+    "Gemm": 1
+  },
+  "warnings": [],
+  "diagnostics_path": "models/cnn-d6a8f048fb67f566-export.log"
+}

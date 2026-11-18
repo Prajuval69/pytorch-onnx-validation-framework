@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "case_id": "22191308ad62c4cb92988399",
+  "model_id": "attention",
+  "model_spec": {
+    "model_id": "attention",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 2026,
+  "distribution": "uniform",
+  "input_shapes": {
+    "input": [
+      64
+    ]
+  },
+  "input_dtypes": {
+    "input": "float32"
+  },
+  "input_sha256": "9fa3240b9332c8b736d54bb05ab61529c21c862b396e58b4ccbda90d3ddc6705",
+  "input_fingerprint": "703acdec4c60468f0a400e060140e69182664438e6e98e3bbfb954235f9cc73a",
+  "onnx_sha256": "e0c93970044627596da9e2b4ffdcc472fb256d7c06ce0f7043c09c34f01b5cb7",
+  "inputs_path": "inputs/22191308ad62c4cb92988399.npz",
+  "case_path": "cases/22191308ad62c4cb92988399.json",
+  "test_kind": "negative_input",
+  "negative_reason": "rank",
+  "expected_exception": {
+    "category": "InvalidInput",
+    "reason": "rank"
+  },
+  "tags": [
+    "synthetic",
+    "negative_input"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": false,
+  "synthetic_fault_injection": false,
+  "fault_replay_requested": false,
+  "fault": null,
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "attention",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "43b2df73d087a637fc8c76b03f88cc430ace2e537eaa85d263cd1e24b7884ada",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "76220bed37c7e540deaafd145e2d7844301c7f9a3a6a0130fcc369ac8ec45505",
+    "cache_hit": false,
+    "onnx_path": "models/attention-76220bed37c7e540.onnx",
+    "onnx_sha256": "e0c93970044627596da9e2b4ffdcc472fb256d7c06ce0f7043c09c34f01b5cb7",
+    "weights_path": "models/attention-76220bed37c7e540-weights.npz",
+    "weights_file_sha256": "255ee53edbadb9270a550ee72a7fca97b94045c934c08547a32a970e867a729f",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 13,
+    "operators": {
+      "MatMul": 6,
+      "Add": 4,
+      "Transpose": 1,
+      "Div": 1,
+      "Softmax": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/attention-76220bed37c7e540-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "PASS",
+  "metrics": {},
+  "backend_outcomes": {
+    "reference": {
+      "status": "PASS",
+      "category": "InvalidInput",
+      "message": "Expected rank 3, got 1",
+      "reason": "rank"
+    },
+    "onnx": {
+      "status": "PASS",
+      "category": "InvalidInput",
+      "message": "[ONNXRuntimeError] : 2 : INVALID_ARGUMENT : Invalid rank for input: input Got: 1 Expected: 3 Please fix either the inputs/outputs or the model.",
+      "reason": "rank"
+    }
+  },
+  "reason": "Expected rejection in both backends",
+  "error": null
+}

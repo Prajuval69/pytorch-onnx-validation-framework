@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "case_id": "4e3108d15e5ba373950491cf",
+  "model_id": "cnn",
+  "model_spec": {
+    "model_id": "cnn",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 1463753697,
+  "distribution": "near_zero",
+  "input_shapes": {
+    "input": [
+      4,
+      1,
+      16,
+      16
+    ]
+  },
+  "input_dtypes": {
+    "input": "float32"
+  },
+  "input_sha256": "fd24d33e14319b0ce09634b0fb0c81e6afc9175d2e96b0b00697d97fff7f822f",
+  "input_fingerprint": "cbf8eaeb9922ac379e9c5b2de49cb70a0fede2b8e5779fa0ee8f79fe09ae0eed",
+  "onnx_sha256": "2d94c846363a1513446b03b08b8089bdf65f8ee58d050f0ea39ebd47c6c158da",
+  "inputs_path": "inputs/4e3108d15e5ba373950491cf.npz",
+  "case_path": "cases/4e3108d15e5ba373950491cf.json",
+  "test_kind": "parity",
+  "negative_reason": null,
+  "expected_exception": null,
+  "tags": [
+    "synthetic",
+    "parity"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": false,
+  "synthetic_fault_injection": false,
+  "fault_replay_requested": false,
+  "fault": null,
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "cnn",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "3e313a7232cd3e2982aa01e0df65813a7d2eb3a52b845a250c9e302048addb45",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "d6a8f048fb67f5667fa7fd50e77625859d89e4853d05fcb988331216ef8ec314",
+    "cache_hit": false,
+    "onnx_path": "models/cnn-d6a8f048fb67f566.onnx",
+    "onnx_sha256": "2d94c846363a1513446b03b08b8089bdf65f8ee58d050f0ea39ebd47c6c158da",
+    "weights_path": "models/cnn-d6a8f048fb67f566-weights.npz",
+    "weights_file_sha256": "b65fef32a36709c105dcfa7f0a9a500cedcd3918d87998a7613b4d7a9f30a632",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 4,
+    "operators": {
+      "Conv": 1,
+      "Relu": 1,
+      "ReduceMean": 1,
+      "Gemm": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/cnn-d6a8f048fb67f566-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "PASS",
+  "metrics": {
+    "output": {
+      "max_abs": 7.450580596923828e-09,
+      "max_rel": 1.7158874707269596e-07,
+      "mean_abs": 5.432715018590292e-10,
+      "rmse": 1.7423449953896652e-09,
+      "cosine_similarity": 1.0,
+      "total_elements": 24,
+      "mismatched_elements": 0,
+      "nonfinite_elements": 0,
+      "worst": null
+    }
+  },
+  "reason": null,
+  "error": null
+}

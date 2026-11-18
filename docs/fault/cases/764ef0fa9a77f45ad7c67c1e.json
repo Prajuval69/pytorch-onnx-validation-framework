@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "case_id": "764ef0fa9a77f45ad7c67c1e",
+  "model_id": "mlp",
+  "model_spec": {
+    "model_id": "mlp",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 3583769794,
+  "distribution": "near_zero",
+  "input_shapes": {
+    "input": [
+      4,
+      32
+    ]
+  },
+  "input_dtypes": {
+    "input": "float32"
+  },
+  "input_sha256": "9211094f5d45f6864f3be459dc130739914ad8faa9269122b8e3dd77cf94bd3b",
+  "input_fingerprint": "886657b32f04160aa3ee35a735a7df57de735bce15cb9a5c821a7cdca69a04d1",
+  "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+  "inputs_path": "inputs/764ef0fa9a77f45ad7c67c1e.npz",
+  "case_path": "cases/764ef0fa9a77f45ad7c67c1e.json",
+  "test_kind": "parity",
+  "negative_reason": null,
+  "expected_exception": null,
+  "tags": [
+    "synthetic",
+    "parity"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": false,
+  "synthetic_fault_injection": false,
+  "fault_replay_requested": false,
+  "fault": null,
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "mlp",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "abb309b01af3f557dcd343870a2f24e7cf842f0a757f779f7f4bc3598ca919b3",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "56d4e4e1a0cf27a2051ed864ab5f25c0f6fd34f1a792e41135bec45b633303c8",
+    "cache_hit": false,
+    "onnx_path": "models/mlp-56d4e4e1a0cf27a2.onnx",
+    "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+    "weights_path": "models/mlp-56d4e4e1a0cf27a2-weights.npz",
+    "weights_file_sha256": "faf52c58088c450c4c8a45c21179df7ed05d561b117afd57a3665a05aafb7982",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 3,
+    "operators": {
+      "Gemm": 2,
+      "Relu": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/mlp-56d4e4e1a0cf27a2-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "PASS",
+  "metrics": {
+    "output": {
+      "max_abs": 1.4901161193847656e-08,
+      "max_rel": 1.0685110021372357e-07,
+      "mean_abs": 2.2118911147117615e-09,
+      "rmse": 4.794276385096368e-09,
+      "cosine_similarity": 0.999999999999999,
+      "total_elements": 32,
+      "mismatched_elements": 0,
+      "nonfinite_elements": 0,
+      "worst": null
+    }
+  },
+  "reason": null,
+  "error": null
+}

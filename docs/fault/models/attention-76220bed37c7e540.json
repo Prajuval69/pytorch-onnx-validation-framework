@@ -1,0 +1,50 @@
+{
+  "export_contract_version": 2,
+  "model_spec": {
+    "model_id": "attention",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "weights_sha256": "43b2df73d087a637fc8c76b03f88cc430ace2e537eaa85d263cd1e24b7884ada",
+  "export_options": {
+    "dynamo": true,
+    "dynamic_batch": true,
+    "opset_version": null
+  },
+  "static_batch": 1,
+  "torch": "2.14.1+cpu",
+  "onnx": "1.23.2",
+  "cache_key": "76220bed37c7e540deaafd145e2d7844301c7f9a3a6a0130fcc369ac8ec45505",
+  "cache_hit": false,
+  "onnx_path": "models/attention-76220bed37c7e540.onnx",
+  "onnx_sha256": "e0c93970044627596da9e2b4ffdcc472fb256d7c06ce0f7043c09c34f01b5cb7",
+  "weights_path": "models/attention-76220bed37c7e540-weights.npz",
+  "weights_file_sha256": "255ee53edbadb9270a550ee72a7fca97b94045c934c08547a32a970e867a729f",
+  "exporter_mode": "dynamo",
+  "exporter_flags": {
+    "dynamo": true,
+    "external_data": false,
+    "dynamic_batch": true,
+    "fallback_argument_supported": false
+  },
+  "fallback_reason": null,
+  "opset_version": 18,
+  "graph_check": "PASS",
+  "dynamic_batch": true,
+  "node_count": 13,
+  "operators": {
+    "MatMul": 6,
+    "Add": 4,
+    "Transpose": 1,
+    "Div": 1,
+    "Softmax": 1
+  },
+  "warnings": [],
+  "diagnostics_path": "models/attention-76220bed37c7e540-export.log"
+}

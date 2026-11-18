@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "case_id": "7f4108eb5e0f302e212b7ebb",
+  "model_id": "mlp",
+  "model_spec": {
+    "model_id": "mlp",
+    "seed": 2026,
+    "input_names": [
+      "input"
+    ],
+    "output_names": [
+      "output"
+    ],
+    "architecture_version": 1
+  },
+  "seed": 2026,
+  "distribution": "uniform",
+  "input_shapes": {
+    "input": [
+      32
+    ]
+  },
+  "input_dtypes": {
+    "input": "float32"
+  },
+  "input_sha256": "f6ef1d03167d3d396f911e72560f311e089dba8d400dbc787327ec6bc4cd0fff",
+  "input_fingerprint": "b463428257e7f72eca7f0bb5d9a876ce360391e4ac1c330ef58cd663a91bbb19",
+  "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+  "inputs_path": "inputs/7f4108eb5e0f302e212b7ebb.npz",
+  "case_path": "cases/7f4108eb5e0f302e212b7ebb.json",
+  "test_kind": "negative_input",
+  "negative_reason": "rank",
+  "expected_exception": {
+    "category": "InvalidInput",
+    "reason": "rank"
+  },
+  "tags": [
+    "synthetic",
+    "negative_input"
+  ],
+  "synthetic_data": true,
+  "intentional_fault_injection": false,
+  "synthetic_fault_injection": false,
+  "fault_replay_requested": false,
+  "fault": null,
+  "compare": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "nan_policy": "fail"
+  },
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "models": [
+      "mlp",
+      "cnn",
+      "attention"
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "export": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "cases": {
+      "batch_sizes": [
+        1,
+        4
+      ],
+      "distributions": [
+        "normal",
+        "zeros",
+        "near_zero"
+      ],
+      "dtype": "float32",
+      "include_invalid_input_tests": true,
+      "max_input_megabytes": 128
+    },
+    "compare": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "nan_policy": "fail"
+    },
+    "report": {
+      "html": true,
+      "csv": true,
+      "json": true
+    }
+  },
+  "export": {
+    "export_contract_version": 2,
+    "model_spec": {
+      "model_id": "mlp",
+      "seed": 2026,
+      "input_names": [
+        "input"
+      ],
+      "output_names": [
+        "output"
+      ],
+      "architecture_version": 1
+    },
+    "weights_sha256": "abb309b01af3f557dcd343870a2f24e7cf842f0a757f779f7f4bc3598ca919b3",
+    "export_options": {
+      "dynamo": true,
+      "dynamic_batch": true,
+      "opset_version": null
+    },
+    "static_batch": 1,
+    "torch": "2.14.1+cpu",
+    "onnx": "1.23.2",
+    "cache_key": "56d4e4e1a0cf27a2051ed864ab5f25c0f6fd34f1a792e41135bec45b633303c8",
+    "cache_hit": false,
+    "onnx_path": "models/mlp-56d4e4e1a0cf27a2.onnx",
+    "onnx_sha256": "d628656e36ddf0e3fcfe320e3ee114473f696a1506937916a18c6abe14b54d21",
+    "weights_path": "models/mlp-56d4e4e1a0cf27a2-weights.npz",
+    "weights_file_sha256": "faf52c58088c450c4c8a45c21179df7ed05d561b117afd57a3665a05aafb7982",
+    "exporter_mode": "dynamo",
+    "exporter_flags": {
+      "dynamo": true,
+      "external_data": false,
+      "dynamic_batch": true,
+      "fallback_argument_supported": false
+    },
+    "fallback_reason": null,
+    "opset_version": 18,
+    "graph_check": "PASS",
+    "dynamic_batch": true,
+    "node_count": 3,
+    "operators": {
+      "Gemm": 2,
+      "Relu": 1
+    },
+    "warnings": [],
+    "diagnostics_path": "models/mlp-56d4e4e1a0cf27a2-export.log",
+    "selected_providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "duration_seconds": 0.0,
+  "status": "PASS",
+  "metrics": {},
+  "backend_outcomes": {
+    "reference": {
+      "status": "PASS",
+      "category": "InvalidInput",
+      "message": "Expected rank 2, got 1",
+      "reason": "rank"
+    },
+    "onnx": {
+      "status": "PASS",
+      "category": "InvalidInput",
+      "message": "[ONNXRuntimeError] : 2 : INVALID_ARGUMENT : Invalid rank for input: input Got: 1 Expected: 2 Please fix either the inputs/outputs or the model.",
+      "reason": "rank"
+    }
+  },
+  "reason": "Expected rejection in both backends",
+  "error": null
+}
